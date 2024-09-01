@@ -3,7 +3,8 @@ import { Direction } from "../global";
 export class ToyRobot {
   private _x: number = 0;
   private _y: number = 0;
-  private direction: Direction = 'SOUTH WEST';
+  private direction: Direction = 'SOUTH';
+  private _placed = false
 
   get x() {
     return this._x
@@ -25,14 +26,22 @@ export class ToyRobot {
     }
   }
 
+  protected isDirectionValid(d: string) {
+    return ['NORTH', 'EAST', 'SOUTH', 'WEST'].includes(d);
+  }
+
   public place(x: number, y: number, direction: Direction) {
-    this.direction = direction;
-    this._x = this.isCoordenateValid(x) ? x : x > this._x ? 4 : 0;
-    this._y = this.isCoordenateValid(y) ? y : y > this._y ? 4 : 0;
+    if (this.isDirectionValid(direction)) {
+      this.direction = direction;
+      this._x = this.isCoordenateValid(x) ? x : x > this._x ? 4 : 0;
+      this._y = this.isCoordenateValid(y) ? y : y > this._y ? 4 : 0;
+    } else {
+      console.log('Invalid Direction')
+    }
   }
 
   public report() {
-    return `${this._x},${this._y},${this.direction}`
+    console.log(`${this._x},${this._y},${this.direction}`)
   }
 
   protected isCoordenateValid(coordenate: number): boolean {
@@ -42,16 +51,16 @@ export class ToyRobot {
   public move() {
     switch (this.direction) {
       case "NORTH":
-        this._y += 1;
+        this.y += 1;
         break;
       case "SOUTH":
-        this._y -= 1
+        this.y -= 1
         break;
       case "WEST":
-        this._x -= 1
+        this.x -= 1
         break;
       case "EAST":
-        this._x += 1
+        this.x += 1
         break;
     }
   }

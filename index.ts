@@ -1,13 +1,5 @@
-import { GameController } from "./src/classes/GameController"
+import { Console } from "./src/classes/ Console";
 
-const commands = [
-  "PLACE 1,2,EAST",
-  "MOVE",
-  "MOVE",
-  "LEFT",
-  "MOVE",
-  "REPORT"
-]
+const console = new Console()
 
-const controller = new GameController(commands)
-controller.start()
+console.start()
