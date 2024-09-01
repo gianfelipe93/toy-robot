@@ -12,18 +12,12 @@ This project implements a solution to the classic Toy Robot coding challenge. Th
 
    npm install
 
-## Running the Sample
+## Running the CLI app
 
-A basic sample scenario is included to demonstrate the robot's functionality. You can run it using:
+You can run it using:
 
-npm start
+npm start START
 
-**Note:** This sample provides a simple illustration. For more comprehensive test cases and scenarios, refer to the automated tests.
+After that you can run all other commands, "PLACE X,Y,DIRECTION", LEFT, RIGHT, REPORT, MOVE. All uppercase
 
-## Running Tests
-
-To execute the suite of automated tests, use:
-
-npm test
-
-The tests cover various scenarios, including edge cases and error handling, to ensure the robustness of the implementation.
+Everything you run before the place command will be ignored.
